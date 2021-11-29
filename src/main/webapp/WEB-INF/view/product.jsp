@@ -4,7 +4,7 @@
     <title>Product</title>
 </head>
 <body>
-<%--<h1>Message: ${msg}</h1>--%>
-<h2>Info: ${info}</h2>
+<h2>Product title: ${product.title}</h2>
+<h2>Product price: ${product.price}</h2>
 </body>
 </html>

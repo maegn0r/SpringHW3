@@ -38,14 +38,15 @@ public class ProductController {
         }
 
 
-//   @RequestMapping
-//   public String printProduct(Model model){
-//       model.addAttribute(productService.);
-//        return "product";
-//   }
+   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+   public String getProductById(Model model,@PathVariable Integer id) {
+        Product product = productService.findById(id);
+        model.addAttribute("products", product);
+        return "product";
+   }
 
-    @ModelAttribute("info")
-    public String info(){
-        return "Additional information";
-    }
+//    @ModelAttribute("info")
+//    public String info(){
+//        return "Additional information";
+//    }
 }

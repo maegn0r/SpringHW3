@@ -38,11 +38,11 @@ public class ProductController {
         }
 
 
-//   @RequestMapping
-//   public String printProduct(Model model){
-//       model.addAttribute(productService.);
-//        return "product";
-//   }
+   @RequestMapping("/{id}")
+   public String printProduct(@PathVariable int id, Model model){
+       model.addAttribute("product", productService.findById(id));
+        return "product";
+   }
 
     @ModelAttribute("info")
     public String info(){

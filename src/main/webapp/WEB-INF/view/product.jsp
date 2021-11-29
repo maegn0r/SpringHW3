@@ -5,6 +5,6 @@
 </head>
 <body>
 <h2>Product title: ${product.title}</h2>
-<h2>Product price: ${product.price}</h2>
+<h2>Product price: ${product.cost}</h2>
 </body>
 </html>

@@ -23,36 +23,25 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-        public String processForm(Product product) {
-            if(product.getId() == null) {
-                productService.addProduct(product);
-            } else {
-                productService.editProduct(product);
-            }
-            return "redirect:/product/all";
+    public String processForm(Product product) {
+        if (product.getId() == null) {
+            productService.addProduct(product);
+        } else {
+            productService.editProduct(product);
         }
-        @RequestMapping(path = "/all", method = RequestMethod.GET)
-        public String getAllProducts (Model model){
-        model.addAttribute("products",productService.findAll());
-        return "product-list";
-        }
-
-   @RequestMapping("/{id}")
-   public String printProduct(@PathVariable int id, Model model){
-       model.addAttribute("product", productService.findById(id));
-        return "product";
-   }
-
-    @ModelAttribute("info")
-    public String info(){
-        return "Additional information";
+        return "redirect:/product";
     }
-//=======
-//   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-//   public String getProductById(Model model,@PathVariable Integer id) {
-//        Product product = productService.findById(id);
-//        model.addAttribute("products", product);
-//        return "product";
-//   }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String getAllProducts(Model model) {
+        model.addAttribute("products", productService.findAll());
+        return "product-list";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String printProduct(@PathVariable int id, Model model) {
+        model.addAttribute("product", productService.findById(id));
+        return "product";
+    }
 
 }

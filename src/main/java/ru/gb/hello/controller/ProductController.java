@@ -37,7 +37,6 @@ public class ProductController {
         return "product-list";
         }
 
-
    @RequestMapping("/{id}")
    public String printProduct(@PathVariable int id, Model model){
        model.addAttribute("product", productService.findById(id));
@@ -48,4 +47,12 @@ public class ProductController {
     public String info(){
         return "Additional information";
     }
+//=======
+//   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+//   public String getProductById(Model model,@PathVariable Integer id) {
+//        Product product = productService.findById(id);
+//        model.addAttribute("products", product);
+//        return "product";
+//   }
+
 }
